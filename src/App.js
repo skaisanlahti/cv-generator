@@ -69,31 +69,36 @@ class App extends Component {
     return (
       <div className="App">
         <h1>CV Generator</h1>
+        <h2>Personal Information</h2>
         <Information isSubmitted={this.state.isSubmitted} />
-        <h1>Education</h1>
+        <h2>Education</h2>
         {schools}
-        <FunctionButton
-          text="Add School"
-          handleClick={this.addEducationField}
-          isSubmitted={this.state.isSubmitted}
-        />
-        <FunctionButton
-          text="Remove School"
-          handleClick={this.removeEducationField}
-          isSubmitted={this.state.isSubmitted}
-        />
-        <h1>Experience</h1>
+        <div className="button-container">
+          <FunctionButton
+            text="Add School"
+            handleClick={this.addEducationField}
+            isSubmitted={this.state.isSubmitted}
+          />
+          <FunctionButton
+            text="Remove School"
+            handleClick={this.removeEducationField}
+            isSubmitted={this.state.isSubmitted}
+          />
+        </div>
+        <h2>Experience</h2>
         {work}
-        <FunctionButton
-          text="Add Work"
-          handleClick={this.addExperienceField}
-          isSubmitted={this.state.isSubmitted}
-        />
-        <FunctionButton
-          text="Remove Work"
-          handleClick={this.removeExperienceField}
-          isSubmitted={this.state.isSubmitted}
-        />
+        <div className="button-container">
+          <FunctionButton
+            text="Add Work"
+            handleClick={this.addExperienceField}
+            isSubmitted={this.state.isSubmitted}
+          />
+          <FunctionButton
+            text="Remove Work"
+            handleClick={this.removeExperienceField}
+            isSubmitted={this.state.isSubmitted}
+          />
+        </div>
         <SubmitButton
           isSubmitted={this.state.isSubmitted}
           handleSubmit={this.handleSubmit}

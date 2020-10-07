@@ -4,7 +4,6 @@ import FormField from "./FormField";
 const Information = (props) => {
   return (
     <div>
-      <h1>Personal Information</h1>
       <FormField
         placeholder="First Name"
         fieldType="text"

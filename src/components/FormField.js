@@ -20,7 +20,7 @@ class FormField extends Component {
 
   render() {
     if (this.props.isSubmitted) {
-      return <p>Submit status: {this.state.value}</p>;
+      return <p>{this.state.value}</p>;
     } else {
       return (
         <input

@@ -4,8 +4,16 @@ import FormField from "./FormField";
 const Experience = (props) => {
   return (
     <div>
-      <FormField fieldType="text" isSubmitted={props.isSubmitted} />
-      <FormField fieldType="text" isSubmitted={props.isSubmitted} />
+      <FormField
+        placeholder="Company"
+        fieldType="text"
+        isSubmitted={props.isSubmitted}
+      />
+      <FormField
+        placeholder="Title"
+        fieldType="text"
+        isSubmitted={props.isSubmitted}
+      />
       <FormField fieldType="date" isSubmitted={props.isSubmitted} />
       <FormField fieldType="date" isSubmitted={props.isSubmitted} />
     </div>
