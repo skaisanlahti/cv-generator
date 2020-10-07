@@ -52,11 +52,12 @@ button {
 .button-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  margin-bottom: 20px;
+  column-gap: 10px;
+  margin: 10px 0;
 }
 
 .submit-button {
   display: block;
   width: 100%;
+  margin: 20px 0;
 }
