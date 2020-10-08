@@ -3,7 +3,7 @@ import FormField from "./FormField";
 
 const Experience = (props) => {
   return (
-    <div>
+    <div className="form-grid">
       <FormField
         placeholder="Company"
         fieldType="text"

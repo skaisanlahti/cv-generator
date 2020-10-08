@@ -67,7 +67,7 @@ class App extends Component {
       work.push(<Experience key={i} isSubmitted={this.state.isSubmitted} />);
     }
     return (
-      <div className="App">
+      <div className="app">
         <h1>CV Generator</h1>
         <h2>Personal Information</h2>
         <Information isSubmitted={this.state.isSubmitted} />
@@ -76,11 +76,13 @@ class App extends Component {
         <div className="button-container">
           <FunctionButton
             text="Add School"
+            color="blue"
             handleClick={this.addEducationField}
             isSubmitted={this.state.isSubmitted}
           />
           <FunctionButton
             text="Remove School"
+            color="gray"
             handleClick={this.removeEducationField}
             isSubmitted={this.state.isSubmitted}
           />
@@ -90,11 +92,13 @@ class App extends Component {
         <div className="button-container">
           <FunctionButton
             text="Add Work"
+            color="blue"
             handleClick={this.addExperienceField}
             isSubmitted={this.state.isSubmitted}
           />
           <FunctionButton
             text="Remove Work"
+            color="gray"
             handleClick={this.removeExperienceField}
             isSubmitted={this.state.isSubmitted}
           />

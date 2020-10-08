@@ -3,7 +3,7 @@ import FormField from "./FormField";
 
 const Information = (props) => {
   return (
-    <div>
+    <div className="form-grid">
       <FormField
         placeholder="First Name"
         fieldType="text"

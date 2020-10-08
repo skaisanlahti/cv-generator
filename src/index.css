@@ -1,14 +1,21 @@
 /* === App Styles ===
 ============================================================================= */
 html {
-  background-color: hsl(0, 0%, 20%);
-  color: hsl(0, 0%, 90%);
+  background-color: hsl(215, 40%, 47%);
+  color: hsl(0, 0%, 10%);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 body {
   display: flex;
   justify-content: center;
+}
+
+.app {
+  background-color: hsl(230, 10%, 95%);
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 h1 {
@@ -22,6 +29,7 @@ h2 {
 }
 
 p {
+  display: inline;
   font-size: 22px;
   padding: 5px;
 }
@@ -29,17 +37,12 @@ p {
 input {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 22px;
-  width: 200px;
   padding: 5px;
-  margin-right: 10px;
+  width: 100%;
   margin-bottom: 5px;
-  background-color: hsl(0, 0%, 35%);
-  color: hsl(0, 0%, 100%);
+  background-color: hsl(215, 20%, 90%);
+  color: hsl(0, 0%, 5%);
   border-radius: 5px;
-}
-
-input:last-child {
-  margin-right: 0;
 }
 
 button {
@@ -60,4 +63,32 @@ button {
   display: block;
   width: 100%;
   margin: 20px 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 400px);
+  justify-items: center;
+  column-gap: 10px;
+  margin: 10px 0;
+}
+
+/* === Button Colors ===
+============================================================================= */
+.green {
+  background-color: hsl(125, 45%, 40%);
+  color: white;
+}
+.red {
+  background-color: hsl(0, 50%, 45%);
+  color: white;
+}
+
+.blue {
+  background-color: hsl(215, 50%, 45%);
+  color: white;
+}
+.gray {
+  background-color: hsl(215, 0%, 55%);
+  color: hsl(215, 0%, 15%);
 }
