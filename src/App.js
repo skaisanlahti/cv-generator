@@ -1,115 +1,95 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Information from "./components/Information";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import SubmitButton from "./components/SubmitButton";
 import FunctionButton from "./components/FunctionButton";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [educationFields, setEducationFields] = useState(1);
+  const [experienceFields, setExperienceFields] = useState(1);
 
-    this.state = {
-      isSubmitted: false,
-      educationFields: 1,
-      experienceFields: 1,
-    };
+  const handleSubmit = () => {
+    setIsSubmitted(!isSubmitted);
+  };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.addEducationField = this.addEducationField.bind(this);
-    this.addExperienceField = this.addExperienceField.bind(this);
-    this.removeEducationField = this.removeEducationField.bind(this);
-    this.removeExperienceField = this.removeExperienceField.bind(this);
-  }
+  const addEducationField = () => {
+    setEducationFields(educationFields + 1);
+  };
 
-  handleSubmit() {
-    const { isSubmitted } = this.state;
-    this.setState({
-      isSubmitted: !isSubmitted,
-    });
-  }
+  const addExperienceField = () => {
+    setExperienceFields(experienceFields + 1);
+  };
 
-  addEducationField() {
-    this.setState({
-      educationFields: this.state.educationFields + 1,
-    });
-  }
-
-  addExperienceField() {
-    this.setState({
-      experienceFields: this.state.experienceFields + 1,
-    });
-  }
-
-  removeEducationField() {
-    if (this.state.educationFields > 0) {
-      this.setState({
-        educationFields: this.state.educationFields - 1,
-      });
+  const removeEducationField = () => {
+    if (educationFields > 0) {
+      setEducationFields(educationFields - 1);
     }
-  }
+  };
 
-  removeExperienceField() {
-    if (this.state.experienceFields > 0) {
-      this.setState({
-        experienceFields: this.state.experienceFields - 1,
-      });
+  const removeExperienceField = () => {
+    if (experienceFields > 0) {
+      setExperienceFields(experienceFields - 1);
     }
-  }
+  };
 
-  render() {
-    const schools = [];
-    const work = [];
-    for (let i = 0; i < this.state.educationFields; i++) {
-      schools.push(<Education key={i} isSubmitted={this.state.isSubmitted} />);
+  const schools = () => {
+    const elements = [];
+    for (let i = 0; i < educationFields; i++) {
+      elements.push(<Education key={i} isSubmitted={isSubmitted} />);
     }
-    for (let i = 0; i < this.state.experienceFields; i++) {
-      work.push(<Experience key={i} isSubmitted={this.state.isSubmitted} />);
+    return elements;
+  };
+
+  const work = () => {
+    const elements = [];
+    for (let i = 0; i < experienceFields; i++) {
+      elements.push(<Experience key={i} isSubmitted={isSubmitted} />);
     }
-    return (
-      <div className="app">
-        <h1>CV Generator</h1>
-        <h2>Personal Information</h2>
-        <Information isSubmitted={this.state.isSubmitted} />
-        <h2>Education</h2>
-        {schools}
-        <div className="button-container">
-          <FunctionButton
-            text="Add School"
-            color="blue"
-            handleClick={this.addEducationField}
-            isSubmitted={this.state.isSubmitted}
-          />
-          <FunctionButton
-            text="Remove School"
-            color="gray"
-            handleClick={this.removeEducationField}
-            isSubmitted={this.state.isSubmitted}
-          />
-        </div>
-        <h2>Experience</h2>
-        {work}
-        <div className="button-container">
-          <FunctionButton
-            text="Add Work"
-            color="blue"
-            handleClick={this.addExperienceField}
-            isSubmitted={this.state.isSubmitted}
-          />
-          <FunctionButton
-            text="Remove Work"
-            color="gray"
-            handleClick={this.removeExperienceField}
-            isSubmitted={this.state.isSubmitted}
-          />
-        </div>
-        <SubmitButton
-          isSubmitted={this.state.isSubmitted}
-          handleSubmit={this.handleSubmit}
+    return elements;
+  };
+
+  return (
+    <div className="app">
+      <h1>CV Generator</h1>
+      <h2>Personal Information</h2>
+      <Information isSubmitted={isSubmitted} />
+      <h2>Education</h2>
+      {schools()}
+      <div className="button-container">
+        <FunctionButton
+          text="Add School"
+          color="blue"
+          handleClick={addEducationField}
+          isSubmitted={isSubmitted}
+        />
+        <FunctionButton
+          text="Remove School"
+          color="gray"
+          handleClick={removeEducationField}
+          isSubmitted={isSubmitted}
         />
       </div>
-    );
-  }
+      <h2>Experience</h2>
+      {work()}
+      <div className="button-container">
+        <FunctionButton
+          text="Add Work"
+          color="blue"
+          handleClick={addExperienceField}
+          isSubmitted={isSubmitted}
+        />
+        <FunctionButton
+          text="Remove Work"
+          color="gray"
+          handleClick={removeExperienceField}
+          isSubmitted={isSubmitted}
+        />
+      </div>
+      <SubmitButton isSubmitted={isSubmitted} handleSubmit={handleSubmit} />
+    </div>
+  );
 }
 
 export default App;

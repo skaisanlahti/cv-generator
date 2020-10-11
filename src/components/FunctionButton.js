@@ -1,6 +1,6 @@
 import React from "react";
 
-function FunctionButton(props) {
+const FunctionButton = (props) => {
   if (!props.isSubmitted) {
     return (
       <button className={props.color} onClick={props.handleClick}>
@@ -9,6 +9,6 @@ function FunctionButton(props) {
     );
   }
   return null;
-}
+};
 
 export default FunctionButton;

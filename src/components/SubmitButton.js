@@ -1,6 +1,6 @@
 import React from "react";
 
-function SubmitButton(props) {
+const SubmitButton = (props) => {
   if (props.isSubmitted) {
     return (
       <button className="submit-button red" onClick={props.handleSubmit}>
@@ -13,6 +13,6 @@ function SubmitButton(props) {
       Submit Form
     </button>
   );
-}
+};
 
 export default SubmitButton;

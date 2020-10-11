@@ -1,38 +1,23 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class FormField extends Component {
-  constructor(props) {
-    super(props);
+const FormField = (props) => {
+  const [value, setValue] = useState("");
 
-    this.state = {
-      value: "",
-    };
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  render() {
-    if (this.props.isSubmitted) {
-      return <p>{this.state.value}</p>;
-    } else {
-      return (
-        <input
-          type={this.props.fieldType}
-          name="value"
-          placeholder={this.props.placeholder}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      );
-    }
-  }
-}
+  return props.isSubmitted ? (
+    <p>{value}</p>
+  ) : (
+    <input
+      type={props.fieldType}
+      name="value"
+      placeholder={props.placeholder}
+      value={value}
+      onChange={handleChange}
+    />
+  );
+};
 
 export default FormField;
