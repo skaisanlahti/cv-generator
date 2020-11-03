@@ -21,7 +21,6 @@
     <a href="https://skaisanlahti.github.io/cv-generator/">View Demo</a>
     ·
     <a href="https://github.com/skaisanlahti/cv-generator/issues">Report a Bug</a>
-    ·
   </p>
 </p>
 
